@@ -1,0 +1,14 @@
+Complete Input Conditioning (2.5 hours) - Paige 10/11
+Complete Input Conditioning Tests (2.5 hours) - Paige 10/11
+      Must generate a waveform generator
+Complete Input Conditioning Circuit Diagram (0.5 hours) - Paige 10/17
+Do analysis for Input Conditioning Question (0.5 hours) - Coleman 10/17
+      If the main system clock is running at 50MHz, what is the maximum length input glitch that will be suppressed by this design for a waittime of 10? Include the analysis in your report.
+Complete Shift Register (1.5 hours) - Coleman 10/11
+Complete Shift Register Test (1.5 hours) - Coleman 10/11
+Write Shift Register Test bench strategy (0.5 hours) - Coleman 10/17
+Compete Midpoint check-in (4 hours) - Paige and Coleman 10/11
+      Take a video of it working (0.25 hours) 10/11
+Complete SPI Memory (3 hours) 10/18
+Complete SPI Memory Test (4 hours) 10/18
+Write Report (2 hours) 10/18
