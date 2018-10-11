@@ -3,8 +3,9 @@
 
 module midpoint(
 	input clk,
-	input  [3:0] sw,
-	input  [3:0] btn,
+	input  sw0,
+	input  sw1,
+	input  btn,
 	output [3:0] led);
 
 	wire parallel_load;
@@ -13,21 +14,21 @@ module midpoint(
 
 	inputconditioner button_conditioner(
 		.clk(clk),
-		.noisysignal(btn[3]),
+		.noisysignal(btn),
 		.conditioned(),
 		.positiveedge(),
 		.negativeedge(parallel_load));
 
 	inputconditioner switch_0_conditioner(
 		.clk(clk),
-		.noisysignal(sw[0]),
+		.noisysignal(sw0),
 		.conditioned(serial_in),
 		.positiveedge(),
 		.negativeedge());
 
 	inputconditioner switch_1_conditioner(
 		.clk(clk),
-		.noisysignal(sw[1]),
+		.noisysignal(sw1),
 		.conditioned(),
 		.positiveedge(clk_edge),
 		.negativeedge());
