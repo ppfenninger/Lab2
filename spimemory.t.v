@@ -21,9 +21,12 @@ module test_spimemory();
     always #10 clk=!clk;    // 50MHz Clock
 
     initial begin
+    	$dumpfile("spimemory.vcd");
+		$dumpvars();
 
 	// Test 1 - test reading and writing to memory to 2 addresses
-		cs_pin=0;
+		cs_pin=1; sclk_pin = 0; #500
+		cs_pin=0; #500
 		//address one: 1101101
 		sclk_pin=0;mosi_pin=1; #500
 		sclk_pin=1; #500
@@ -41,20 +44,20 @@ module test_spimemory();
 		sclk_pin=1; #500
 		sclk_pin=0;mosi_pin=0; #500 //r-w is low for write
 		sclk_pin=1; #500
-		//inputting data 10101010
+		//inputting data 11110000
+		sclk_pin=0;mosi_pin=1; #500
+		sclk_pin=1; #500
+		sclk_pin=0;mosi_pin=1; #500
+		sclk_pin=1; #500
+		sclk_pin=0;mosi_pin=1; #500
+		sclk_pin=1; #500
 		sclk_pin=0;mosi_pin=1; #500
 		sclk_pin=1; #500
 		sclk_pin=0;mosi_pin=0; #500
 		sclk_pin=1; #500
-		sclk_pin=0;mosi_pin=1; #500
-		sclk_pin=1; #500
 		sclk_pin=0;mosi_pin=0; #500
 		sclk_pin=1; #500
-		sclk_pin=0;mosi_pin=1; #500
-		sclk_pin=1; #500
 		sclk_pin=0;mosi_pin=0; #500
-		sclk_pin=1; #500
-		sclk_pin=0;mosi_pin=1; #500
 		sclk_pin=1; #500
 		sclk_pin=0;mosi_pin=0; #500
 		sclk_pin=1; #500
@@ -79,20 +82,20 @@ module test_spimemory();
 		sclk_pin=1; #500
 		sclk_pin=0;mosi_pin=0; #500 //r-w is low for write
 		sclk_pin=1; #500
-		//inputting data 01010101
+		//inputting data 00001111
+		sclk_pin=0;mosi_pin=0; #500
+		sclk_pin=1; #500
+		sclk_pin=0;mosi_pin=0; #500
+		sclk_pin=1; #500
+		sclk_pin=0;mosi_pin=0; #500
+		sclk_pin=1; #500
 		sclk_pin=0;mosi_pin=0; #500
 		sclk_pin=1; #500
 		sclk_pin=0;mosi_pin=1; #500
 		sclk_pin=1; #500
-		sclk_pin=0;mosi_pin=0; #500
-		sclk_pin=1; #500
 		sclk_pin=0;mosi_pin=1; #500
 		sclk_pin=1; #500
-		sclk_pin=0;mosi_pin=0; #500
-		sclk_pin=1; #500
 		sclk_pin=0;mosi_pin=1; #500
-		sclk_pin=1; #500
-		sclk_pin=0;mosi_pin=0; #500
 		sclk_pin=1; #500
 		sclk_pin=0;mosi_pin=1; #500
 		sclk_pin=1; #500
@@ -117,21 +120,21 @@ module test_spimemory();
 		sclk_pin=1; #500
 		sclk_pin=0;mosi_pin=1; #500 //r-w is high for read
 		sclk_pin=1; #500
-		//we should geet 10101010 back
+		//we should geet 11110000 back
 		sclk_pin=0; #500
 		if(miso_pin !== 1) $display("Oh no test 1A failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
-		if(miso_pin !== 0) $display("Oh no test 1B failed: ", miso_pin);
+		if(miso_pin !== 1) $display("Oh no test 1B failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
 		if(miso_pin !== 1) $display("Oh no test 1C failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
-		if(miso_pin !== 0) $display("Oh no test 1D failed: ", miso_pin);
+		if(miso_pin !== 1) $display("Oh no test 1D failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
-		if(miso_pin !== 1) $display("Oh no test 1E failed: ", miso_pin);
+		if(miso_pin !== 0) $display("Oh no test 1E failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
 		if(miso_pin !== 0) $display("Oh no test 1F failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
-		if(miso_pin !== 1) $display("Oh no test 1G failed: ", miso_pin);
+		if(miso_pin !== 0) $display("Oh no test 1G failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
 		if(miso_pin !== 0) $display("Oh no test 1H failed: ", miso_pin);
 		sclk_pin=1; #500
@@ -157,21 +160,21 @@ module test_spimemory();
 		sclk_pin=1; #500
 		sclk_pin=0;mosi_pin=1; #500 //r-w is high for read
 		sclk_pin=1; #500
-		//we should geet 01010101 back
+		//we should geet 00001111 back
 		sclk_pin=0; #500
 		if(miso_pin !== 0) $display("Oh no test 1I failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
-		if(miso_pin !== 1) $display("Oh no test 1J failed: ", miso_pin);
+		if(miso_pin !== 0) $display("Oh no test 1J failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
 		if(miso_pin !== 0) $display("Oh no test 1K failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
-		if(miso_pin !== 1) $display("Oh no test 1L failed: ", miso_pin);
+		if(miso_pin !== 0) $display("Oh no test 1L failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
-		if(miso_pin !== 0) $display("Oh no test 1M failed: ", miso_pin);
+		if(miso_pin !== 1) $display("Oh no test 1M failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
 		if(miso_pin !== 1) $display("Oh no test 1N failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
-		if(miso_pin !== 0) $display("Oh no test 1O failed: ", miso_pin);
+		if(miso_pin !== 1) $display("Oh no test 1O failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
 		if(miso_pin !== 1) $display("Oh no test 1P failed: ", miso_pin);
 		sclk_pin=1; #500 
@@ -238,21 +241,21 @@ module test_spimemory();
 		sclk_pin=1; #500
 		sclk_pin=0;mosi_pin=1; #500 //r-w is high for read
 		sclk_pin=1; #500
-		//we should geet 10101010 back
+		//we should geet 11110000 back
 		sclk_pin=0; #500
 		if(miso_pin !== 1) $display("Oh no test 2A failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
-		if(miso_pin !== 0) $display("Oh no test 2B failed: ", miso_pin);
+		if(miso_pin !== 1) $display("Oh no test 2B failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
 		if(miso_pin !== 1) $display("Oh no test 2C failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
-		if(miso_pin !== 0) $display("Oh no test 2D failed: ", miso_pin);
+		if(miso_pin !== 1) $display("Oh no test 2D failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
-		if(miso_pin !== 1) $display("Oh no test 2E failed: ", miso_pin);
+		if(miso_pin !== 0) $display("Oh no test 2E failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
 		if(miso_pin !== 0) $display("Oh no test 2F failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
-		if(miso_pin !== 1) $display("Oh no test 2G failed: ", miso_pin);
+		if(miso_pin !== 0) $display("Oh no test 2G failed: ", miso_pin);
 		sclk_pin=1; #500 sclk_pin=0; #500
 		if(miso_pin !== 0) $display("Oh no test 2H failed: ", miso_pin);
 		sclk_pin=1; #500

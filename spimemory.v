@@ -86,7 +86,7 @@ module spiMemory
 
 	datamemory spi_mem(
 		.clk(clk),
-		.address(address_latch_out[6:0]),
+		.address(address_latch_out[7:1]),
 		.writeEnable(memory_we),
 		.dataIn(shift_register_parallel_out),
 		.dataOut(data_memory_out));
