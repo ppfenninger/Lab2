@@ -63,7 +63,7 @@
       <File Path="$PSRCDIR/sources_1/imports/Lab2/inputconditioner.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../inputconditioner.v"/>
-          <Attr Name="ImportTime" Val="1539295548"/>
+          <Attr Name="ImportTime" Val="1539296331"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -81,7 +81,7 @@
       <File Path="$PSRCDIR/sources_1/imports/Lab2/midpoint.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../midpoint.v"/>
-          <Attr Name="ImportTime" Val="1539295404"/>
+          <Attr Name="ImportTime" Val="1539297942"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
