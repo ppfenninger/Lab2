@@ -180,6 +180,8 @@ module test_spimemory();
 		sclk_pin=1; #500 
 		cs_pin=1; #5000
 
+		if(miso_pin !== 1'bz) $display("Oh no the miso pin is being driven when chip select is high: %b %b", miso_pin);
+
 		// Test 3 - test chip select features
 		// We are going to keep chip select high for the write and hope that it does work
 
