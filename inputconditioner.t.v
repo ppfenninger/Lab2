@@ -30,7 +30,7 @@ module testConditioner();
     // Synchronization, Debouncing, Edge Detection
 
     //Test 1 - Synchronization
-    //Does it actually take six clock cycles (20 units of time each) to get to the output
+    //Does it actually take five and a half clock cycles (20 units of time each) to get to the output
         pin=0; #80
         if((conditioned !== 0)) begin
             $display("Test Case 1a Failed: %b", conditioned);
